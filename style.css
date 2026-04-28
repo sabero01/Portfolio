@@ -218,6 +218,12 @@ ul li::before {
 }
 
 /* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
 .project-card {
     display: flex;
     flex-direction: column;
