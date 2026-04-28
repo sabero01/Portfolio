@@ -29,6 +29,62 @@ body {
     padding: 100px 20px;
 }
 
+/* Navigation */
+nav {
+    height: var(--nav-height);
+    background: rgba(15, 13, 12, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.logo span {
+    color: var(--accent-color);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
 /* Badge */
 .badge {
     display: inline-block;
@@ -55,6 +111,143 @@ h1.section-main-title {
     color: var(--text-secondary);
     font-size: 1.1rem;
     margin-bottom: 60px;
+}
+
+/* Hero Section */
+header#hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: var(--nav-height);
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-contact {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.hero-contact a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero-contact a:hover {
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* General Layout */
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-title::after {
+    content: "";
+    height: 1px;
+    background: var(--border-color);
+    flex-grow: 1;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+}
+
+/* Experience */
+.timeline {
+    border-left: 2px solid var(--border-color);
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -41px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 4px solid var(--bg-color);
+}
+
+.company {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
 }
 
 /* Project Cards */
@@ -152,8 +345,8 @@ h1.section-main-title {
     background: var(--card-bg);
     padding: 25px;
     text-align: center;
-    border-radius: 8px;
-    border: 1px solid #222;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
     transition: 0.3s;
 }
 
@@ -172,12 +365,10 @@ h1.section-main-title {
     margin-top: 10px;
     font-size: 0.8rem;
     color: var(--text-secondary);
-    font-family: var(--font-mono);
 }
 
 .cert-card:hover {
     border-color: var(--accent-color);
-    background: #1a1a1a;
 }
 
 /* Footer */
@@ -185,8 +376,7 @@ footer {
     text-align: center;
     padding: 40px;
     color: var(--text-secondary);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
 footer i {
@@ -207,7 +397,7 @@ footer i {
 
 .glitch {
     position: relative;
-    color: white;
+    display: inline-block;
 }
 
 .glitch::before,
@@ -219,25 +409,25 @@ footer i {
     width: 100%;
     height: 100%;
     background: var(--bg-color);
+    clip: rect(0, 0, 0, 0);
 }
 
-.glitch::before {
+.glitch:hover::before {
     left: 2px;
-    text-shadow: -2px 0 #ff00c1;
+    text-shadow: -2px 0 var(--accent-color);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim 5s infinite linear alternate-reverse;
 }
 
-.glitch::after {
+.glitch:hover::after {
     left: -2px;
-    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    text-shadow: -2px 0 #fff;
     animation: glitch-anim2 1s infinite linear alternate-reverse;
 }
 
 @keyframes glitch-anim {
     0% { clip: rect(31px, 9999px, 94px, 0); }
     20% { clip: rect(62px, 9999px, 42px, 0); }
-    /* ... more keyframes for a real glitch effect ... */
     100% { clip: rect(13px, 9999px, 85px, 0); }
 }
 
@@ -254,5 +444,8 @@ footer i {
     .hero-contact {
         flex-direction: column;
         gap: 10px;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
