@@ -36,14 +36,14 @@
     </header>
 
     <main>
-        <section id="about" class="container">
+        <section id="about" class="container reveal">
             <h2 class="section-title">01. About Me</h2>
             <div class="card">
                 <p>Adaptable Cybersecurity-focused Computer Science graduate with a passion for innovation. Proven expertise in network security and Python, complemented by professional agility in the travel technology sector. Able to rapidly master new systems and apply tactical problem-solving skills across diverse industries.</p>
             </div>
         </section>
 
-        <section id="experience" class="container">
+        <section id="experience" class="container reveal">
             <h2 class="section-title">02. Professional Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -61,9 +61,26 @@
             </div>
         </section>
 
-        <section id="projects" class="container">
+        <section id="projects" class="container reveal">
             <h2 class="section-title">03. Key Projects</h2>
             <div class="project-grid">
+                <div class="card project-card">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open"></i>
+                        <div class="project-links">
+                            <a href="https://github.com/sabero01/SimpleHash" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>SimpleHash</h3>
+                    <p class="project-type">Python Integrity Tool</p>
+                    <p>A lightweight utility for verifying file integrity using MD5, SHA256, and SHA512. Features chunked reading for handling large files efficiently.</p>
+                    <ul class="tech-stack">
+                        <li>Python</li>
+                        <li>Hashlib</li>
+                        <li>CLI</li>
+                    </ul>
+                </div>
+
                 <div class="card project-card">
                     <div class="project-header">
                         <i class="fas fa-folder-open"></i>
@@ -84,9 +101,15 @@
             </div>
         </section>
 
-        <section id="certs" class="container">
+        <section id="certs" class="container reveal">
             <h2 class="section-title">04. Certifications</h2>
             <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fab fa-linux"></i>
+                    <h4>Linux Unhatched</h4>
+                    <p>NDG / Cisco Networking Academy</p>
+                    <span class="date">Passed</span>
+                </div>
                 <div class="cert-card">
                     <i class="fas fa-shield-alt"></i>
                     <h4>Cisco Certified</h4>
@@ -119,5 +142,22 @@
         <p>Built with <i class="fas fa-heart"></i> by Mohammed Saber</p>
         <p>&copy; 2026</p>
     </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // To check the scroll position on page load
+        reveal();
+    </script>
 </body>
 </html>
